@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Soft</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="../assets/imgs/barcode.png" class="scan_img">
+  <button ion-button outline color="yellow" (click)="scanProduct()" class="scan_btn">Scan Barcode</button>
+</ion-content>

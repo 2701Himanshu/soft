@@ -1,0 +1,52 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Order</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+
+	  <ion-item>
+	    <ion-label floating color="yellow">Name</ion-label>
+	    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating color="yellow">Email</ion-label>
+	    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating color="yellow">Contact Number</ion-label>
+	    <ion-input maxlength="10" type="tel" [(ngModel)]="user.contact"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating color="yellow">Address</ion-label>
+	    <ion-input type="text" [(ngModel)]="user.address"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating color="yellow">City</ion-label>
+	    <ion-input type="text" [(ngModel)]="user.city"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating color="yellow">Postal Code</ion-label>
+	    <ion-input type="tel" maxlength="6" [(ngModel)]="user.pincode"></ion-input>
+	  </ion-item>
+
+	</ion-list>
+
+	<button ion-button outline color="yellow" class="scan_btn" (click)="buy()">Buy Now</button>
+</ion-content>

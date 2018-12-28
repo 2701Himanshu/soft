@@ -1,0 +1,27 @@
+page-prod-details {
+	.scan_btn{
+		width: 90%;
+	    margin: 0px 5%;
+	}
+	.caption{
+	    font-size: 15px;
+	    font-weight: 500;
+	    background: #FFD453;
+	    border-bottom-left-radius: 2px;
+	    border-top-left-radius: 3px;
+	    padding: 5px;
+	    color: #252525;
+	}
+	.data{
+		font-size: 15px;
+	    font-weight: 500;
+	    background: #444;
+	    border-bottom-right-radius: 2px;
+	    border-top-right-radius: 3px;
+	    padding: 5px;
+	    color: #fff;
+	}
+	ion-row{
+		padding-bottom: 7px !important;
+	}
+}
