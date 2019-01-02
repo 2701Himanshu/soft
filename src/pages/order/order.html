@@ -46,6 +46,9 @@
 	    <ion-input type="tel" maxlength="6" [(ngModel)]="user.pincode"></ion-input>
 	  </ion-item>
 
+	  <ion-item class="tot_amt">
+	  	<p>Total Amount<br/> {{total_amt}}/-</p>
+	  </ion-item>
 	</ion-list>
 
 	<button ion-button outline color="yellow" class="scan_btn" (click)="buy()">Buy Now</button>

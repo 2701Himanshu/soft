@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ProdDetailsPage } from '../pages/prod-details/prod-details';
 import { OrderPage } from '../pages/order/order';
+import { ConfirmOrderPage } from '../pages/confirm-order/confirm-order';
+import { OrderListPage } from '../pages/order-list/order-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +23,9 @@ import { UtilsProvider } from '../providers/utils/utils';
     HomePage,
     ListPage,
     ProdDetailsPage,
-    OrderPage
+    OrderPage,
+    ConfirmOrderPage,
+    OrderListPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { UtilsProvider } from '../providers/utils/utils';
     HomePage,
     ListPage,
     ProdDetailsPage,
-    OrderPage
+    OrderPage,
+    ConfirmOrderPage,
+    OrderListPage
   ],
   providers: [
     StatusBar,

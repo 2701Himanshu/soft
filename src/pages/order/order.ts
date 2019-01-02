@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PromiseProvider } from '../../providers/promise/promise';
 import { UtilsProvider } from '../../providers/utils/utils';
+import { ConfirmOrderPage } from '../confirm-order/confirm-order';
 
 /**
  * Generated class for the OrderPage page.
@@ -27,6 +28,7 @@ export class OrderPage {
   user;
   total_amt: number;
   total_qty: number;
+  dataToSend;
 
   ionViewCanEnter() {
     this.details = this.navParams.get('data');
@@ -47,7 +49,7 @@ export class OrderPage {
   }
 
   buy(){
-  	var dataToSend = {
+  	this.dataToSend = {
 		userid: "2",
 		name: this.user.name,
 		contact: this.user.contact,
@@ -65,11 +67,12 @@ export class OrderPage {
 		imgurl: this.getImageUrl(this.details.imgurl, this.details.Image)
 	};
 	this.utils.initLoading();
-	this.promise.orderProduct(dataToSend).subscribe(
+	this.promise.orderProduct(this.dataToSend).subscribe(
 		(data)=> {
 			this.utils.hideLoading();
 			if(data['lastid']){
-				alert('order inserted.');
+				this.navCtrl.pop();
+				this.navCtrl.push(ConfirmOrderPage, {data: this.dataToSend});
 			}
 		},
 		(error)=> {

@@ -57,6 +57,7 @@ export class ProdDetailsPage {
   }
 
   order(data){
+    this.navCtrl.pop();
     this.navCtrl.push(OrderPage, {data: data, amt: this.totalAmt, qty: this.quantity});
   }
 }

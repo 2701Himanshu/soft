@@ -7,4 +7,13 @@ page-home {
 		width: 100%;
 		padding: 15%;
 	}
+	.cart-btn{
+		position: absolute;
+	    right: 7px;
+	    top: 5px;
+	}
+	.cart-btn .cart{
+		font-size: 27px !important;
+	    color: #565656 !important;
+	}
 }

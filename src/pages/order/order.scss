@@ -10,4 +10,12 @@ page-order {
 	.item-input-has-focus .label-md[floating]{
 		color: #FFD453 !important;
 	}
+	.tot_amt {
+		text-align: center;
+	}
+	.tot_amt p{
+		font-size: 30px;
+	    padding-top: 20px;
+	    color: #959595;
+	}		
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ProdDetailsPage } from '../prod-details/prod-details';
+import { OrderListPage } from '../order-list/order-list';
 import { PromiseProvider } from '../../providers/promise/promise';
 import { UtilsProvider } from '../../providers/utils/utils';
 
@@ -23,9 +24,16 @@ export class HomePage {
   scanProduct(){
     /*barcode_final_code*/
     this.barcodeScanner.scan().then(barcodeData => {
+        if(barcodeData.text == ""){
+          this.utils.showAlertMessage({
+            type: 'alert',
+            message: 'There is some problem in barcode scanning, please re-scan it.'
+          });
+          return;
+        }
         var dataToSend = {
-          // barcode: barcodeData.text
-          barcode:"ABCD234EDS"
+          barcode: barcodeData.text
+          // barcode:"ABCD234EDS"
         };
         this.utils.initLoading();
         this.promise.getProdDetails(dataToSend).subscribe(
@@ -75,5 +83,9 @@ export class HomePage {
 
     /* page push*/
     // this.navCtrl.push(ProdDetailsPage, {data: 'dataToSend'});
+  }
+
+  navToOrderList(){
+    this.navCtrl.push(OrderListPage);
   }
 }

@@ -1,0 +1,110 @@
+<!--
+  Generated template for the ConfirmOrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Thank You</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div class="prod_imgs_slider">
+		<ion-slides parallax="true" pager="true" loop="true">
+		  <ion-slide>
+		    <img  [src]="getImageUrl(dataToView.ProImage)" style="width:100%; height:250px" />
+		  </ion-slide>
+		</ion-slides>
+	</div>
+
+	<div class="prod_details" padding>
+		
+
+		<ion-grid>
+		  
+		  	<ion-row>
+		  		<ion-col class="caption divider">
+			      Product Related Details
+			    </ion-col>
+		  	</ion-row>
+			<ion-row>
+			    <ion-col class="caption">
+			      Product Name
+			    </ion-col>
+			    <ion-col col-8 class="data">
+			      {{dataToView.productname}}
+			    </ion-col>
+			  </ion-row>
+			  <ion-row>
+			    <ion-col class="caption">
+			      Product Quantity
+			    </ion-col>
+			    <ion-col col-8 class="data">
+			      {{dataToView.qty}}
+			    </ion-col>
+			  </ion-row>
+			  <ion-row>
+			    <ion-col class="caption">
+			      Total Amount
+			    </ion-col>
+			    <ion-col col-8 class="data">
+			      {{dataToView.totalamt}}
+			    </ion-col>
+			</ion-row>
+
+			<ion-row>
+		  		<ion-col class="caption divider">
+			      Delivery Details
+			    </ion-col>
+		  	</ion-row>
+
+		  <ion-row>
+		    <ion-col class="caption">
+		      Person Name
+		    </ion-col>
+		    <ion-col col-8 class="data">
+		      {{dataToView.name}}
+		    </ion-col>
+		  </ion-row>
+		  <ion-row>
+		    <ion-col class="caption">
+		      Delivery address
+		    </ion-col>
+		    <ion-col col-8 class="data">
+		      {{dataToView.address}} - {{dataToView.pin}}
+		    </ion-col>
+		  </ion-row>
+		  <ion-row>
+		    <ion-col class="caption">
+		      Delivery City
+		    </ion-col>
+		    <ion-col col-8 class="data">
+		      {{dataToView.city}}
+		    </ion-col>
+		  </ion-row>
+		  <ion-row>
+		    <ion-col class="caption">
+		      Contact
+		    </ion-col>
+		    <ion-col col-8 class="data">
+		      {{dataToView.contact}}
+		    </ion-col>
+		  </ion-row>
+		  <ion-row>
+		    <ion-col class="caption">
+		      Email
+		    </ion-col>
+		    <ion-col col-8 class="data">
+		      {{dataToView.email}}
+		    </ion-col>
+		  </ion-row>		  
+		</ion-grid>
+		<p>Thank you for ordering, please check your order in order list page.</p>
+	</div>
+
+</ion-content>

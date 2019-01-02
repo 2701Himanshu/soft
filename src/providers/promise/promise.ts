@@ -25,6 +25,10 @@ export class PromiseProvider {
 	orderProduct(data){
 		return this.http.post(this._API_BASE_URL+"barcode/insertorder"+this._API_URL_PREFIX, data);
 	}
+
+	orderList(data){
+		return this.http.post(this._API_BASE_URL+"barcode/orderdetails"+this._API_URL_PREFIX, data);
+	}
 }
 
 
