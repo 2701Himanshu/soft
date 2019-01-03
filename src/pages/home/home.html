@@ -5,12 +5,37 @@
     </button>
     <ion-title>Soft</ion-title>
     <button ion-button class="cart-btn" clear (click)="navToOrderList()">
-      <ion-icon name="cart" style="font-size: 27px;color: #565656;"></ion-icon>
+      <ion-icon name="person" style="font-size: 27px;color: #565656;"></ion-icon>
+    </button>
+    <button ion-button class="cart-btn" style="right: 13%;" clear (click)="scanProduct()">
+      <ion-icon name="barcode" style="font-size: 27px;color: #565656;"></ion-icon>
     </button>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <img src="../assets/imgs/barcode.png" class="scan_img">
-  <button ion-button outline color="yellow" (click)="scanProduct()" class="scan_btn">Scan Barcode</button>
+<ion-content>
+  <ion-refresher (ionRefresh)="refreshProductList($event)">
+    <ion-refresher-content 
+      refreshingText="Refreshing..."
+      pullingText="Pull to refresh">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding col-6 *ngFor="let prod of prod_list">
+        <ion-card style="background: #FFD453;" (click)="openProductDetail(prod.ProId)">
+          <img src="{{getImageUrl(prod.imgurl, prod.Image)}}" style="height: 130px;" />
+          <ion-card-content style="padding: 0px 10px;">
+            <ion-card-title no-margin style="font-size: 1.7rem;">
+              {{prod.ProductName}}
+            </ion-card-title>
+            <p style="font-weight: bold;">
+              Rs. {{prod.productMRP}}/-
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -29,6 +29,14 @@ export class PromiseProvider {
 	orderList(data){
 		return this.http.post(this._API_BASE_URL+"barcode/orderdetails"+this._API_URL_PREFIX, data);
 	}
+
+	productListForHome(data){
+		return this.http.post(this._API_BASE_URL+"barcode/productlist"+this._API_URL_PREFIX, data);
+	}
+
+	getProductDetails(data){
+		return this.http.post(this._API_BASE_URL+"barcode/productdetail"+this._API_URL_PREFIX, data);
+	}
 }
 
 

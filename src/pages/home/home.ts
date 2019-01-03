@@ -13,12 +13,13 @@ import { UtilsProvider } from '../../providers/utils/utils';
 export class HomePage {
 
   private data:{};
+  private prod_list: {};s
   constructor(
     private barcodeScanner: BarcodeScanner, 
     private promise: PromiseProvider,
     private utils: UtilsProvider,
     public navCtrl: NavController) {
-  	this.scanProduct();
+  	this.getProductList();
   }
 
   scanProduct(){
@@ -39,6 +40,13 @@ export class HomePage {
         this.promise.getProdDetails(dataToSend).subscribe(
           (data)=> {
             this.utils.hideLoading();
+            if(data == 'Something Went Wrong'){
+              this.utils.showAlertMessage({
+                type: 'alert',
+                message: 'No product available!'
+              });
+              return;
+            }
             this.navCtrl.push(ProdDetailsPage, {data: data});
           },
           (error)=> {
@@ -87,5 +95,68 @@ export class HomePage {
 
   navToOrderList(){
     this.navCtrl.push(OrderListPage);
+  }
+
+  getImageUrl(url, name){
+    return 'http://115.124.98.243/~mindzshop/'+url+name;
+  }
+
+  openProductDetail(id){
+    this.utils.initLoading();
+    var dataToSend = {
+      proid : id
+    }
+    this.promise.getProductDetails(dataToSend).subscribe(
+      (data)=> {
+        this.utils.hideLoading();
+        console.log(data);
+        this.navCtrl.push(ProdDetailsPage, {data: data});
+      },
+      (error)=> {
+        debugger;
+        this.utils.hideLoading();
+        this.utils.showAlertMessage({
+          type: 'alert',
+          message: 'There is some error with internet connection, please re-scan the barcode.'
+        });
+        console.log(error);
+      }
+    );
+  }
+
+  getProductList(){
+    this.utils.initLoading();
+    this.promise.productListForHome({}).subscribe(
+      (data)=> {
+        this.utils.hideLoading();
+        this.prod_list = data['product'];
+      },
+      (error)=> {
+        debugger;
+        this.utils.hideLoading();
+        this.utils.showAlertMessage({
+          type: 'alert',
+          message: 'There is some error with internet connection, please re-scan the barcode.'
+        });
+        console.log(error);
+      }
+    );
+  }
+
+  refreshProductList(refresher){
+    this.promise.productListForHome({}).subscribe(
+      (data)=> {
+        refresher.complete();
+        this.prod_list = data['product'];
+      },
+      (error)=> {
+        debugger;
+        refresher.complete();
+        this.utils.showAlertMessage({
+          type: 'alert',
+          message: 'There is some error with internet connection, please re-scan the barcode.'
+        });
+      }
+    );
   }
 }
